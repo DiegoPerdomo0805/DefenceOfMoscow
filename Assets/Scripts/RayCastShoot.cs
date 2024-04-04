@@ -20,6 +20,8 @@ public class RayCastShoot : MonoBehaviour
     private float expTimer;
     public int Grenades;
     public int GCarry = 4; // valor arbitrario, sujeto a balanceo
+    public GameObject grenadePrefab;
+    public int throwForce = 5;
 
     void Start () 
     {
@@ -74,9 +76,25 @@ public class RayCastShoot : MonoBehaviour
 
     void Shoot(Vector3 apunta)
     {
+        Ray fire = Camera.main.ScreenPointToRay(apunta);
+        RaycastHit hit;
+
+        if(Physics.Raycast(fire, out hit)){
+            Debug.Log("Bang " + hit.transform.name);
+        }
     }
 
-    void Grenade(Vector3 apunta)
+        void Grenade(Vector3 apunta)
     {
+        // Instantiate grenade prefab at current position with appropriate rotation
+        GameObject grenadeInstance = Instantiate(grenadePrefab, transform.position, Quaternion.identity);
+
+        // Calculate direction towards the target
+        Vector3 direction = (apunta - transform.position).normalized;
+
+        // Access grenade's Rigidbody component and apply force in the calculated direction
+        Rigidbody grenadeRigidbody = grenadeInstance.GetComponent<Rigidbody>();
+        grenadeRigidbody.AddForce(direction * throwForce, ForceMode.Impulse);
+
     }
 }
