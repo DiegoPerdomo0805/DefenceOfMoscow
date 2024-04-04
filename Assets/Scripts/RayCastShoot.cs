@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RayCastShoot : MonoBehaviour
 {
+    // Apuntar
+    public Vector3 Aim;
+
     // Variables de arma
     public float shootCooldown = 0.25f;
     private float shootTimer;
@@ -29,6 +32,7 @@ public class RayCastShoot : MonoBehaviour
 
     void Update () 
     {
+        Aim = Input.mousePosition;
         // Cool Down de disparo
         if(shootTimer > 0){
             shootTimer -= Time.deltaTime;
@@ -49,7 +53,7 @@ public class RayCastShoot : MonoBehaviour
 
         // Disparar
         if (Input.GetButtonDown("Fire1") && shootTimer == 0 && Ammo > 0){
-            Shoot();
+            Shoot(Aim);
             shootTimer = shootCooldown;
             Ammo--;
         }
@@ -62,19 +66,17 @@ public class RayCastShoot : MonoBehaviour
 
         // Granadas-
         if (Input.GetButtonDown("Fire2") && Grenades > 0){
-            Grenade();
+            Grenade(Aim);
             expTimer = expCooldown;
             Grenades--;
         }
     }
 
-    void Shoot()
+    void Shoot(Vector3 apunta)
     {
-
     }
 
-    void Grenade()
+    void Grenade(Vector3 apunta)
     {
-
     }
 }
