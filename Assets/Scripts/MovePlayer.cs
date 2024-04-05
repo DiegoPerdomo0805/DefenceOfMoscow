@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     public float Speed = 5f;
+    public float Speed2 = 7.5f;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,12 @@ public class MovePlayer : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
 
-        rb.AddForce(movement * Speed);
+        
+        if(Input.GetKeyDown(KeyCode.Space)){
+            rb.AddForce(movement * Speed2);
+        }
+        else{
+            rb.AddForce(movement * Speed);
+        }    
     }
 }

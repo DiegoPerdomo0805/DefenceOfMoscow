@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class RayCastShoot : MonoBehaviour
 {
+    // Health
+    private float maxHealth = 20f;
+    public float Health;
+
+
     // Apuntar
     public Vector3 Aim;
 
@@ -11,8 +16,9 @@ public class RayCastShoot : MonoBehaviour
     public float shootCooldown = 0.25f;
     private float shootTimer;
     public int Ammo;
-    public int Magazines = 4; // Cantidad de cartuchos, sujeto a balanceo
+    public int Magazines; // Cantidad de cartuchos, sujeto a balanceo
     public int MagSize = 25; // Cartucho para una PPD-34
+    public int maxMag = 4; // Máxima cantidad de cartuchos 
 
     // Variables de granadas y explosivos
 
@@ -29,6 +35,7 @@ public class RayCastShoot : MonoBehaviour
         expTimer = 0;
         Ammo = MagSize;
         Grenades = GCarry;
+        Health = maxHealth;
     }
 
 
