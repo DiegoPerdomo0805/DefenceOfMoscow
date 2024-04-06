@@ -19,6 +19,7 @@ public class RayCastShoot : MonoBehaviour
     public int Magazines; // Cantidad de cartuchos, sujeto a balanceo
     public int MagSize = 25; // Cartucho para una PPD-34
     public int maxMag = 4; // Máxima cantidad de cartuchos 
+    public GameObject bulletPrefab;
 
     // Variables de granadas y explosivos
 
@@ -56,6 +57,10 @@ public class RayCastShoot : MonoBehaviour
         Grenades = GCarry;
         Health = maxHealth;
         transform.position = RespawnPoint.position;
+
+        municiones.text = "Balas: " + Ammo;
+        cartuchos.text = "Cartuchos: " + Magazines;
+        granadas.text = "Granadas: " + Grenades;
     }
 
 
@@ -103,6 +108,10 @@ public class RayCastShoot : MonoBehaviour
             Grenades--;
             granadas.text = "Granadas: " + Grenades;
         }
+
+        if(transform.position.y < -6.0f){
+            Respawn();
+        }
     }
 
     void Shoot(Vector3 apunta)
@@ -112,7 +121,30 @@ public class RayCastShoot : MonoBehaviour
 
         if(Physics.Raycast(fire, out hit)){
             Debug.Log("Bang " + hit.transform.name);
+            //SeeBullet(fire.origin, hit.point);
+            SeeBullet(transform.position, hit.point);
         }
+        else{
+            Vector3 end = fire.origin + fire.direction * 20;
+            //SeeBullet(fire.origin, end);
+            SeeBullet(transform.position, end);
+        }
+    }
+
+    public Material bala;
+
+
+    void SeeBullet(Vector3 o, Vector3 f)
+    {
+        GameObject bulletVisual = Instantiate(bulletPrefab);
+        LineRenderer lineRenderer = bulletVisual.GetComponent<LineRenderer>();
+        lineRenderer.material = bala;
+        lineRenderer.widthMultiplier = 0.05f;
+
+        lineRenderer.SetPosition(0, o);
+        lineRenderer.SetPosition(1, f);
+
+        Destroy(bulletVisual, 0.025f);
     }
 
     void Grenade(Vector3 apunta)

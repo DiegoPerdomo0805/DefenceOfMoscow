@@ -1548,8 +1548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d848cb785e03a64e97b60d43a4d18de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
-  Speed2: 7.5
+  Speed: 15
+  Speed2: 30
 --- !u!54 &1257172137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1596,10 +1596,11 @@ MonoBehaviour:
   Magazines: 0
   MagSize: 25
   maxMag: 4
+  bulletPrefab: {fileID: 4018800655815750662, guid: 01bac7aa10f164042ba7b24f1e7524c5, type: 3}
   expCooldown: 3
   Grenades: 0
   GCarry: 4
-  grenadePrefab: {fileID: 0}
+  grenadePrefab: {fileID: 1337537083285589713, guid: 43453f7239ba7e54884399ce544b2ee4, type: 3}
   throwForce: 5
   municiones: {fileID: 1117255230}
   cartuchos: {fileID: 773882014}

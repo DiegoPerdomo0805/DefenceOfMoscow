@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public float Speed = 10f;
+    public float Speed = 15f;
     public float Speed2 = 30f;
     private Rigidbody rb;
     // Start is called before the first frame update
