@@ -92,6 +92,7 @@ public class RayCastShoot : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R) && Magazines > 0){
             Ammo = MagSize;
             Magazines--;
+            municiones.text = "Balas: " + Ammo;
             cartuchos.text = "Cartuchos: " + Magazines;
         }
 
