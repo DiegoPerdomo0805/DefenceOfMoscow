@@ -28,7 +28,7 @@ public class RayCastShoot : MonoBehaviour
     public int Grenades;
     public int GCarry = 4; // valor arbitrario, sujeto a balanceo
     public GameObject grenadePrefab;
-    public int throwForce = 5;
+    public int throwForce = 20;
 
     // TextMeshes
     public TMPro.TextMeshProUGUI municiones;
@@ -150,14 +150,22 @@ public class RayCastShoot : MonoBehaviour
     void Grenade(Vector3 apunta)
     {
         // Instantiate grenade prefab at current position with appropriate rotation
-        GameObject grenadeInstance = Instantiate(grenadePrefab, transform.position, Quaternion.identity);
+        Vector3 where = transform.position;
+        where.y += 1.5f;
+        GameObject grenadeInstance = Instantiate(grenadePrefab, where, Quaternion.identity);
 
         // Calculate direction towards the target
-        Vector3 direction = (apunta - transform.position).normalized;
+        //float mag = apunta.x * apunta.x
+        //
+        Vector3 temp = apunta.normalized;
+        Vector3 direction = new Vector3(temp.x, 0, temp.y);
+        Debug.Log("granada: " + grenadeInstance.transform.position + "  dirección: "+ direction + "  vector: "+ direction * throwForce );
 
         // Access grenade's Rigidbody component and apply force in the calculated direction
         Rigidbody grenadeRigidbody = grenadeInstance.GetComponent<Rigidbody>();
         grenadeRigidbody.AddForce(direction * throwForce, ForceMode.Impulse);
+        Destroy(grenadeInstance, 6f);
+
 
     }
 }
