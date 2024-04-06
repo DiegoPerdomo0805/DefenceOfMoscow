@@ -29,13 +29,33 @@ public class RayCastShoot : MonoBehaviour
     public GameObject grenadePrefab;
     public int throwForce = 5;
 
+    // TextMeshes
+    public TMPro.TextMeshProUGUI municiones;
+    public TMPro.TextMeshProUGUI cartuchos;
+    public TMPro.TextMeshProUGUI granadas;
+
     void Start () 
     {
         shootTimer = 0;
         expTimer = 0;
         Ammo = MagSize;
         Grenades = GCarry;
+        Magazines = maxMag;
         Health = maxHealth;
+
+        municiones.text = "Balas: " + Ammo;
+        cartuchos.text = "Cartuchos: " + Magazines;
+        granadas.text = "Granadas: " + Grenades;
+    }
+
+    public Transform RespawnPoint;
+
+    void Respawn(){
+        Magazines = maxMag;
+        Ammo = MagSize;
+        Grenades = GCarry;
+        Health = maxHealth;
+        transform.position = RespawnPoint.position;
     }
 
 
@@ -65,12 +85,14 @@ public class RayCastShoot : MonoBehaviour
             Shoot(Aim);
             shootTimer = shootCooldown;
             Ammo--;
+            municiones.text = "Balas: " + Ammo;
         }
         
         // Recargar 
         if(Input.GetKeyDown(KeyCode.R) && Magazines > 0){
             Ammo = MagSize;
             Magazines--;
+            cartuchos.text = "Cartuchos: " + Magazines;
         }
 
         // Granadas-
@@ -78,6 +100,7 @@ public class RayCastShoot : MonoBehaviour
             Grenade(Aim);
             expTimer = expCooldown;
             Grenades--;
+            granadas.text = "Granadas: " + Grenades;
         }
     }
 
@@ -91,7 +114,7 @@ public class RayCastShoot : MonoBehaviour
         }
     }
 
-        void Grenade(Vector3 apunta)
+    void Grenade(Vector3 apunta)
     {
         // Instantiate grenade prefab at current position with appropriate rotation
         GameObject grenadeInstance = Instantiate(grenadePrefab, transform.position, Quaternion.identity);

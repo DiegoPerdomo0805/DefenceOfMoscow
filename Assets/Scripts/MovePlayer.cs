@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public float Speed = 5f;
-    public float Speed2 = 7.5f;
+    public float Speed = 10f;
+    public float Speed2 = 30f;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,8 @@ public class MovePlayer : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
 
         
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKey(KeyCode.Space)){
+            Debug.Log(" Running");
             rb.AddForce(movement * Speed2);
         }
         else{
