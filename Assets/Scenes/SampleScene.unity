@@ -812,8 +812,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 281727b1d4b00284e90af083ed3b5b61, type: 2}
-  m_sharedMaterial: {fileID: 5685946462567511749, guid: 281727b1d4b00284e90af083ed3b5b61, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 00714e223c40d984eb5097ada87a950e, type: 2}
+  m_sharedMaterial: {fileID: 7513728441703487770, guid: 00714e223c40d984eb5097ada87a950e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1079,9 +1079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2240a443b23174045b367acdaf0d07e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hatredLikeMaterial: {fileID: 2100000, guid: e703adf2769c81b448a83e6aa1b820cf, type: 2}
-  bloodColor: {r: 0.4245283, g: 0.014017452, b: 0.014017452, a: 1}
-  saturationAmount: 0.5
+  hatredLikeMaterial: {fileID: 2100000, guid: 25c57e5eb42c48741ba1beb647df1d55, type: 2}
+  bloodColor: 0.428
 --- !u!1001 &1006921585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1260,8 +1259,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 281727b1d4b00284e90af083ed3b5b61, type: 2}
-  m_sharedMaterial: {fileID: 5685946462567511749, guid: 281727b1d4b00284e90af083ed3b5b61, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 00714e223c40d984eb5097ada87a950e, type: 2}
+  m_sharedMaterial: {fileID: 7513728441703487770, guid: 00714e223c40d984eb5097ada87a950e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1962,8 +1961,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 281727b1d4b00284e90af083ed3b5b61, type: 2}
-  m_sharedMaterial: {fileID: 5685946462567511749, guid: 281727b1d4b00284e90af083ed3b5b61, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 00714e223c40d984eb5097ada87a950e, type: 2}
+  m_sharedMaterial: {fileID: 7513728441703487770, guid: 00714e223c40d984eb5097ada87a950e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
